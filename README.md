@@ -107,23 +107,23 @@ This gives the workflow permission to write test results to the Actions interfac
 
     ```yaml
     - name: Test with pytest
-    run: |
-        pytest
+      run: |
+          pytest
     ```
 
     With the following:
 
     ```yaml
     - name: Test with pytest
-    run: |
-        python -m pytest --verbose --junit-xml=junit.xml
+      run: |
+          python -m pytest --verbose --junit-xml=junit.xml
     - name: Publish Test Report
-    uses: mikepenz/action-junit-report@v3
-    if: success() || failure()
-    with:
-        report_paths: '**/junit.xml'
-        detailed_summary: true
-        include_passed: true
+      uses: mikepenz/action-junit-report@v3
+      if: success() || failure()
+      with:
+          report_paths: '**/junit.xml'
+          detailed_summary: true
+          include_passed: true
     ```
 
     This change does two things:
